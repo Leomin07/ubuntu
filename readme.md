@@ -3,6 +3,7 @@
 ```
 sudo apt install curl
 curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
+
 source ~/.bashrc
 ```
 
@@ -22,7 +23,7 @@ npm install --global yarn
 ### Install Git
 
 ```
-sudo apt install git
+sudo apt install git -y
 
 git config --global user.name "MinhTD"
 git config --global user.name "tranminhsvp@gmail.com"
@@ -91,22 +92,22 @@ sudo apt-get install dconf-cli
 
 git clone https://github.com/dracula/gnome-terminal
 cd gnome-terminal
-
 ./install.sh
 ```
 
 ### Fix font terminal
 
-- select font meslo gl powerline
+- select [font](https://www.nerdfonts.com/font-downloads) jetbrains-font nerd font
 
 ### Install other
 
 ```
-sudo apt-get update && sudo apt-get dist-upgrade && apt install ubuntu-restricted-extras && apt install rar unrar p7zip-full p7zip-rar && apt-get install ibus-unikey -y
+sudo apt-get update && sudo apt-get dist-upgrade && apt install rar unrar p7zip-full p7zip-rar && apt-get install ibus-unikey -y
 
 sudo snap install vlc
 sudo apt install gnome-tweaks
-sudo install chrome-gnome-shell
+sudo apt install chrome-gnome-shell
+sudo apt install ubuntu-restricted-extras
 ```
 
 ### Set editor default vim
@@ -164,4 +165,87 @@ python3 warp-GUI.py
 
 ```
 sudo apt install telegram-desktop -y
+```
+
+### Install Smplayer
+
+```
+sudo snap install smplayer
+```
+
+### Install Terminator && uninstall
+
+- Install:
+
+```
+sudo add-apt-repository ppa:gnome-terminator
+
+sudo apt-get update
+
+sudo apt-get install terminator
+```
+
+- Uninstall:
+
+```
+sudo apt remove terminator
+```
+
+### Install theme && icons
+
+```
+git clone https://github.com/vinceliuice/WhiteSur-gtk-theme.git --depth=1
+cd WhiteSur-gtk-theme
+./install.sh -t Dark
+```
+
+- extra WhiteSur-icon-theme and `./install.sh`
+- Find Tweaks -> Appearance -> Applications, Icons to WhiteSur-Dark
+
+### Install terminal alacritty
+
+```
+sudo apt update -y && sudo apt upgrade -y
+sudo add-apt-repository ppa:aslatter/ppa -y
+sudo apt update -y
+sudo apt install alacritty -y
+```
+
+- Config Copy && Paste
+
+```
+sudo nano $HOME/.config/alacritty/alacritty.toml
+or
+sudo nano $HOME/.alacritty.toml
+
+```
+
+```
+[keyboard]
+bindings = [
+{ key = "C", mods = "Control", action = "Copy" },
+{ key = "V", mods = "Control", action = "Paste" },
+]
+
+[font]
+size = 12.0
+
+[font.normal]
+family = "JetBrains Mono"
+
+```
+
+- Add theme dracula:
+
+```
+mkdir -p ~/.config/alacritty/themes
+git clone https://github.com/alacritty/alacritty-theme ~/.config/alacritty/themes
+```
+
+- Add an import to your alacritty.toml (Replace {theme} with your desired colorscheme):
+
+```
+import = [
+    "~/.config/alacritty/themes/themes/dracula.toml"
+]
 ```
