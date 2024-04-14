@@ -4,24 +4,32 @@ sudo apt update
 
 sudo apt install gir1.2-gtop-2.0 htop curl
 # install font
-sudo mkdir ~/.local/share/fonts
+sudo mkdir ~/.local/share/fonts/
 
-cp -r /media/leomin/SSD/Linux/JetBrainsMono/* ~/.local/share/fonts/
+sudo cp -r /media/leomin/SSD/Linux/JetBrainsMono/* ~/.local/share/fonts/
 
-fc-cache -f -v
+sudo fc-cache -f -v
 
-fc-list | grep "JetBrains"
+sudo fc-list | grep "JetBrains"
 # end
 
 # create file config alacritty
-sudo mkdir ~/.config/alacritty &
-cp -r /media/leomin/SSD/dev/ubuntu/alacritty.yml ~/.config/alacritty/
+# sudo mkdir ~/.config/alacritty/
+# sudo cp -r /media/leomin/SSD/dev/ubuntu/alacritty.toml ~/.config/
+# alacritty migrate
+
 # end
 sudo apt install git -y
 
 sudo apt-get install ibus-unikey -y
 
 sudo apt install snapd -y
+# install gnome extensions
+sudo wget -O gnome-shell-extension-installer "https://github.com/brunelli/gnome-shell-extension-installer/raw/master/gnome-shell-extension-installer"
+sudo chmod +x gnome-shell-extension-installer
+sudo mv gnome-shell-extension-installer /usr/bin/
+
+gnome-shell-extension-installer 307 5446 5219 97 6670
 
 sudo snap install node --classic
 
@@ -35,7 +43,7 @@ sudo snap install --classic code
 
 sudo snap install dbeaver-ce
 
-sudo snap install alacritty --classic
+# sudo snap install alacritty --classic
 
 sudo snap install mpv
 
@@ -50,7 +58,7 @@ echo "deb [arch=amd64 signed-by=/usr/share/keyrings/cloudflare-warp-archive-keyr
 
 sudo apt-get install cloudflare-warp -y
 
-warp-cli registration new y
+# warp-cli registration new
 
 #fix docker-desktop
 sudo apt-get update
@@ -64,5 +72,3 @@ echo \
   $(. /etc/os-release && echo "$VERSION_CODENAME") stable" |
   sudo tee /etc/apt/sources.list.d/docker.list >/dev/null
 sudo apt-get update
-
-alacritty migrate
